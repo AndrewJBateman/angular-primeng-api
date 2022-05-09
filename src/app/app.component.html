@@ -1,0 +1,45 @@
+<p-accordion>
+  <p-accordionTab header="MachineType"> Machine type... </p-accordionTab>
+  <p-accordionTab header="FactoryInterface">
+    Factory interface...
+  </p-accordionTab>
+  <p-accordionTab header="DataComms" [selected]="true">
+    <div>
+      <p-radioButton
+        label="RS232"
+        name="factoryComms"
+        value="rs232"
+        [(ngModel)]="factoryCommsSelection"
+      >
+      </p-radioButton>
+    </div>
+
+    <div>
+      <p-radioButton
+        label="Ethernet"
+        name="factoryComms"
+        value="ethernet"
+        [(ngModel)]="factoryCommsSelection"
+      >
+      </p-radioButton>
+    </div>
+
+    <div>
+      <p-radioButton
+        label="RS485"
+        name="factoryComms"
+        value="rs485"
+        [(ngModel)]="factoryCommsSelection"
+      >
+      </p-radioButton>
+    </div>
+  </p-accordionTab>
+</p-accordion>
+
+<p-panel
+  header="Config"
+  *ngIf="factoryCommsSelection && factoryCommsSelection.length"
+>
+  Shall we set up the machine configuration?
+  <button pButton type="button" label="OK"></button>
+</p-panel>
